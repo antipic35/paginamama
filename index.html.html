@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Día Mamá</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffc0cb, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      text-align: center;
+      color: #b30059;
+    }
+
+    h1, h2, h3 {
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 2.7em;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    h2 {
+      font-size: 2em;
+      animation: fadeInUp 2s ease;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+      animation: fadeIn 3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    #imagen, #dedicatoria {
+      display: none;
+      animation: fadeIn 2s ease;
+    }
+
+    img {
+      width: 300px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    #dedicatoria {
+      background: rgba(255, 255, 255, 0.6);
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 20px;
+      width: 80%;
+      font-size: 1.2em;
+      color: #80214d;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+    }
+
+    /* Animaciones */
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Pétalos en forma de flor 🌸 */
+    .petalo {
+      position: fixed;
+      font-size: 30px;  /* Tamaño de los pétalos */
+      opacity: 0.8;
+      animation: caer 8s linear infinite;
+      transform: rotate(-45deg); /* Da un giro para simular el efecto de un pétalo */
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Bienvenida Silvana Mejías 💖</h1>
+  <h2>Santiago Pedroza para la mejor madre del mundo 🌹🌟💐</h2>
+
+  <button id="avanzarBtn">💌 Haz clic para avanzar 💌</button>
+
+  <div id="imagen">
+    <img src="mama.jpg" alt="Feliz Día Mamá">
+    <h2>🌸 Gracias por tanto amor, mamá 🌸</h2>
+  </div>
+
+  <div id="dedicatoria">
+    <h3>🌷 Querida mamá 🌷</h3>
+    <p>
+      En este día tan especial, quiero recordarte cuánto te amo y admiro.  
+      Gracias por tu paciencia, tus abrazos, tu fuerza y tu dulzura.  
+      Eres mi ejemplo, mi guía y la reina de mi corazón.  
+      Nunca podré devolverte todo lo que me das, pero hoy quiero darte al menos una sonrisa.  
+      ¡Feliz Día de las Madres!  
+    </p>
+    <p style="font-weight: bold;">Con todo nuestro amor,<br>Santiago Pedroza y Mathias Pedroza💖</p>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio id="music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio 😢
+  </audio>
+
+  <!-- Pétalos animados (usando el emoji 🌸 como petalos) -->
+  <script>
+    function crearPetalos() {
+      for (let i = 0; i < 20; i++) {
+        let petalo = document.createElement("div");
+        petalo.classList.add("petalo");
+        petalo.style.left = Math.random() * 100 + "vw";
+        petalo.style.animationDuration = (5 + Math.random() * 5) + "s";
+        petalo.textContent = "🌸"; // Usamos el emoji de flor
+        document.body.appendChild(petalo);
+      }
+    }
+
+    document.getElementById("avanzarBtn").addEventListener("click", function() {
+      // Reproducir música al hacer clic
+      document.getElementById("music").play();
+
+      document.getElementById("imagen").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("dedicatoria").style.display = "block";
+        document.getElementById("dedicatoria").scrollIntoView({ behavior: "smooth" });
+      }, 1500);
+      crearPetalos();
+    });
+  </script>
+
+</body>
+</html>
